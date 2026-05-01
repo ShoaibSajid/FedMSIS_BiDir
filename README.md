@@ -6,8 +6,6 @@ Chungbuk National University, South Korea
 
 <sup>1</sup>shoaib@cbnu.ac.kr &nbsp;|&nbsp; <sup>2</sup>zafar343@cbnu.ac.kr &nbsp;|&nbsp; <sup>3</sup>shimaakotb@cbnu.ac.kr &nbsp;|&nbsp; <sup>4</sup>hwkim@cbnu.ac.kr
 
-**Corresponding authors:** Shimaa A. Abdel Hakeem (shimaakotb@cbnu.ac.kr) and Hyungwon Kim (hwkim@cbnu.ac.kr)
-
 > **Note:** The full code will be released once the associated paper is accepted.
 
 ---
