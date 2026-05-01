@@ -22,67 +22,6 @@ After local training with these refined pseudo-labels, client models are sent to
 
 ---
 
-## Key Contributions
-
-- **Bi-directional pseudo-label refinement:** Low-confidence detections on unlabeled video frames are refined by leveraging temporal consistency from neighboring frames, boosting confidence when a high-confidence detection of the same class is found at a closely matching location (IoU > 0.9).
-- **Validation-driven best-model selection:** Instead of standard federated averaging, the server selects and broadcasts the global model with the highest mAP on a held-out validation set, accelerating convergence under both IID and Non-IID data distributions.
-- **Semi-supervised federated object detection:** Combines self-training with federated learning to tackle label scarcity across distributed clients without sharing raw data.
-
----
-
-## Method Overview
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                        FedMSIS-BiDir                            │
-│                                                                 │
-│  ┌──────────┐   pseudo-labels    ┌──────────────────────────┐   │
-│  │  Global  │ ─────────────────► │   Client (per round)     │   │
-│  │  Model   │                    │                          │   │
-│  └──────────┘                    │  1. Generate pseudo-     │   │
-│       ▲                          │     labels on unlabeled  │   │
-│       │                          │     video frames         │   │
-│  best model                      │  2. Bi-dir refinement:   │   │
-│  (highest mAP)                   │     boost low-conf       │   │
-│       │                          │     detections via       │   │
-│  ┌──────────┐   local models     │     temporal neighbors   │   │
-│  │  Server  │ ◄───────────────── │  3. Train on refined     │   │
-│  │ Selector │                    │     pseudo-labels        │   │
-│  └──────────┘                    └──────────────────────────┘   │
-│  Evaluates all client models + previous global model on a       │
-│  held-out validation set; broadcasts best model next round      │
-└─────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## Results
-
-### Cityscapes
-
-| Method | mAP | Δ vs FedSTO |
-|---|---|---|
-| FedSTO | baseline | — |
-| **FedMSIS-BiDir** | baseline + 1.5% | **+1.5%** |
-
-> FedMSIS-BiDir shows even larger gains on challenging classes such as **person** and **bus**.
-
-### BDD100K
-
-| Setting | Method | mAP | Δ vs FedSTO |
-|---|---|---|---|
-| Non-IID | **FedMSIS-BiDir** | baseline + 0.7% | **+0.7%** |
-| IID | **FedMSIS-BiDir** | baseline + 0.3% | **+0.3%** |
-
-### Semi-Supervised Federated Learning with Unlabeled YouTube Videos
-
-| Method | mAP | Δ vs FedSTO |
-|---|---|---|
-| FedSTO | baseline | — |
-| **FedMSIS-BiDir** | baseline + 2.4% | **+2.4%** |
-
----
-
 ## Datasets
 
 - **[Cityscapes](https://www.cityscapes-dataset.com/)** – Urban scene understanding benchmark.
@@ -90,9 +29,9 @@ After local training with these refined pseudo-labels, client models are sent to
 
 ---
 
-## Citation
+## Code
 
-> Citation information will be added once the paper is published.
+> Working code will be added once the paper is accepted.
 
 ---
 
