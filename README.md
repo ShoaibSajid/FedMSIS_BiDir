@@ -20,13 +20,6 @@ After local training with these refined pseudo-labels, client models are sent to
 
 ---
 
-## Datasets
-
-- **[Cityscapes](https://www.cityscapes-dataset.com/)** – Urban scene understanding benchmark.
-- **[BDD100K](https://bdd-data.berkeley.edu/)** – Large-scale diverse driving video dataset.
-
----
-
 ## Code
 
 > Working code will be added once the paper is accepted.
